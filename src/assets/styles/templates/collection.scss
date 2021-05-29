@@ -7,11 +7,62 @@
   color: #6849e3;
 }
 
-.product-card {
-  box-sizing: border-box;
-  float: left;
-  min-height: 1em;
-  padding-left: 2em;
-  vertical-align: top;
-  width: 25%;
+.product--container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  grid-auto-rows: auto;
+  margin: 1em 0 0 0;
 }
+
+.product--card {
+  min-width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.swatch {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.Blue {
+  background-color: #00bcd3;
+}
+
+.Red {
+  background-color: #ef5350;
+}
+
+.Gold {
+  background-color: #fec109;
+}
+.Brown {
+  background-color: #af806e;
+}
+.Medium {
+  background-color: #cdcdcd;
+}
+.Navy {
+  background-color: #2f3676;
+}
+.Yellow {
+  background-color: #fec109;
+}
+.Dark {
+  background-color: #2f3676;
+}
+.Light {
+  background-color: #00bcd3;
+}
+
+// .product-card {
+//   box-sizing: border-box;
+//   float: left;
+//   min-height: 1em;
+//   padding-left: 2em;
+//   vertical-align: top;
+//   width: 25%;
+// }

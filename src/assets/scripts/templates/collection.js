@@ -6,6 +6,6 @@ import getAllProducts from "../graphql/collection-starter-code";
 // Your Code Here
 getAllProducts("test-collection").then((arr) =>
   arr.forEach((element) => {
-    console.log(element);
+    console.log(element, element.options[0].values);
   })
 );
