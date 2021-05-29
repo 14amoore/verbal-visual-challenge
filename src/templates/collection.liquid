@@ -1,4 +1,6 @@
 <div id="collection-page">
+<img>{{ collection.image }}</img>
+<h2>{{ collection.title }}</h2>
   <select class="input--dropdown">
     <option disabled="disabled" selected="selected" value="">Sort</option> 
     <option>Newest Arrival</option>
@@ -7,4 +9,8 @@
     <option>Price Low to High</option>
     <option>Price High to Low</option>
   </select>
+  <p>{{ products.length }} results</p>
+</div>
+<div class="products">
+  
 </div>

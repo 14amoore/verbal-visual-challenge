@@ -1,1 +1,17 @@
 // your code here
+#collection-page {
+  text-align: center;
+}
+
+#collection-page > p {
+  color: #6849e3;
+}
+
+.product-card {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1em;
+  padding-left: 2em;
+  vertical-align: top;
+  width: 25%;
+}
