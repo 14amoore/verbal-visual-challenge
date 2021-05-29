@@ -1,0 +1,10 @@
+theme:
+  password: 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
+  theme_id: "123290550434"
+  store: adam-moore-code-challenge.myshopify.com
+  ignore_files:
+    - settings_data.json
+    - src
+    - node_modules
+    - package.json
+    - package-lock.json
