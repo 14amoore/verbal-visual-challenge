@@ -3,7 +3,16 @@
   text-align: center;
 }
 
-#collection-page > p {
+.options-container > h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.input--dropdown {
+  margin-bottom: 0.5em;
+}
+
+.options-container > p {
   color: #6849e3;
 }
 
@@ -12,18 +21,26 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1em;
   grid-auto-rows: auto;
-  margin: 1em 0 0 0;
+  margin: 1em;
 }
 
 .product--card {
-  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: auto;
   text-align: center;
 }
 
+.swatches {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .swatch {
-  width: 1em;
-  height: 1em;
+  flex: 0 0 auto;
+  width: 1.25em;
+  height: 1.25em;
   border-radius: 50%;
   display: inline-block;
 }

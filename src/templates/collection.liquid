@@ -1,24 +1,28 @@
 <div id="collection-page">
-<img>{{ collection.image }}</img>
-<h2>{{ collection.title }}</h2>
-  <select class="input--dropdown">
-    <option disabled="disabled" selected="selected" value="">Sort</option> 
-    <option>Newest Arrival</option>
-    <option>A - Z</option>
-    <option>Z - A</option>
-    <option>Price Low to High</option>
-    <option>Price High to Low</option>
-  </select>
-  <p>{{ products.length }} results</p>
+  <img>{{ collection.image }}</img>
+  <div class="options-container">
+    <h2>{{ collection.title }}</h2>
+    <select class="input--dropdown">
+      <option disabled="disabled" selected="selected" value="">Sort</option> 
+      <option>Newest Arrival</option>
+      <option>A - Z</option>
+      <option>Z - A</option>
+      <option>Price Low to High</option>
+      <option>Price High to Low</option>
+    </select>
+    <p>{{ products.length }} results</p>
+  </div>
     <div class="product--container">
     {%- for product in collection.products -%}
       <div class="product--card">
         <img src="{{ product.featured_image | img_url:'200x200' }}"></img>
         <p>{{ product.title }}</p>
         <p>{{ product.price | money }}</p>
+        <div class="swatches">
           {%- for color_option in product.options_by_name['Color'].values -%}
             <span class="swatch {{ color_option }}"></span>
           {%- endfor -%}
+        </div>
       </div>
     {%- endfor -%}
   </div>
