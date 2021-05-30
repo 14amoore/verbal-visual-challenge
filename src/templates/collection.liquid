@@ -1,7 +1,8 @@
 <div id="collection-page">
-  <img>{{ collection.image }}</img>
+  <!-- try loading image 100% then changing width based on size of device -->
+  <img id="headerImage" src="{{ collection.image || img_url:'master' }}"></img>
+  <h2>{{ collection.title }}</h2>
   <div class="options-container">
-    <h2>{{ collection.title }}</h2>
     <select class="input--dropdown">
       <option disabled="disabled" selected="selected" value="">Sort</option> 
       <option>Newest Arrival</option>
@@ -10,20 +11,46 @@
       <option>Price Low to High</option>
       <option>Price High to Low</option>
     </select>
-    <p>{{ products.length }} results</p>
+    <p>{{ collection.products_count }} results</p>
   </div>
     <div class="product--container">
     {%- for product in collection.products -%}
       <div class="product--card">
-        <img src="{{ product.featured_image | img_url:'200x200' }}"></img>
+        {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+        <img src="{{ featured_image | img_url:'200x200' }}"></img>
         <p>{{ product.title }}</p>
-        <p>{{ product.price | money }}</p>
-        <div class="swatches">
-          {%- for color_option in product.options_by_name['Color'].values -%}
-            <span class="swatch {{ color_option }}"></span>
-          {%- endfor -%}
+        {%- assign product_price = product.selected_or_first_available_variant.price -%}
+        <p>{{ product_price | money }}</p>
+          <div class="swatches">
+            <fieldset id="ProductSelect-option-{{ forloop.index0 }}" name="{{ product.title | handleize }}">
+              {%- for color_option in product.options_by_name["Color"].values -%}
+                  {%- assign variant_label_state = true -%}
+                    {%- if color_option.size == 1 -%}
+                      {%- unless product.variants[forloop.index0].available -%}
+                        {%- assign variant_label_state = false -%}
+                      {%- endunless -%}
+                    {%- endif -%}
+                    <input type="radio"
+                    {% unless variant_label_state %} disabled="disabled"{% endunless %}
+                    value="{{ product.id | escape }}"
+                    data-index="option{{ forloop.index0 }}"
+                    name="{{ product.title | handleize }}"
+                    class="swatch"
+                    id="{{ product.title | handleize }}-{{ value | escape }}">
+              {%- endfor -%}
+            </fieldset>
+         </div>
         </div>
-      </div>
     {%- endfor -%}
   </div>
 </div>
+
+
+<!-- <form>
+   <fieldset> 
+     {%- for variant in product.variants -%} -->
+      <!-- <span class="swatch {{ color_option }}" id="test"></span> -->
+      <!-- <input type="radio" name="{{product.title}}" value="{{ variant.id }}" class="swatch {{ color_option }}"></input>
+    {%- endfor -%}
+  </fieldset>
+</form> -->

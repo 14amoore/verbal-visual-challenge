@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+#headerImage {
+  margin: 0 auto;
+}
+
 .options-container > h2 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -75,11 +79,29 @@
   background-color: #00bcd3;
 }
 
-// .product-card {
-//   box-sizing: border-box;
-//   float: left;
-//   min-height: 1em;
-//   padding-left: 2em;
-//   vertical-align: top;
-//   width: 25%;
-// }
+@media screen and (min-width: 1024px) {
+  #collection-page {
+    margin: 0 1em 0 1em;
+  }
+
+  .options-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .options-container > * {
+    flex: 0 0 auto;
+  }
+
+  .product--container {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1em 0 0 0;
+  }
+
+  .swatch {
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.5em 0 0.5em;
+  }
+}
