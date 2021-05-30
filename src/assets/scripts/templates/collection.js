@@ -5,13 +5,13 @@ import getAllProducts from "../graphql/collection-starter-code";
 
 // Your Code Here
 // use below when done
-// getAllProducts("test-collection");
+getAllProducts("test-collection");
 
-getAllProducts("test-collection").then((arr) =>
-  arr.forEach((element) => {
-    console.log(element);
-  })
-);
+// getAllProducts("test-collection").then((arr) =>
+//   arr.forEach((element) => {
+//     console.log(element);
+//   })
+// );
 
 // getting a NodeList of all the radio buttons
 const input = document.querySelectorAll(".swatch");
