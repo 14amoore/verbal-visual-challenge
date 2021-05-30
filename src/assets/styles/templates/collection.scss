@@ -14,6 +14,7 @@
 
 .input--dropdown {
   margin-bottom: 0.5em;
+  width: 90%;
 }
 
 .options-container > p {
@@ -82,7 +83,7 @@
 
 @media screen and (min-width: 1024px) {
   #collection-page {
-    margin: 0 1em 0 1em;
+    margin: 0 2em 0 2em;
   }
 
   .options-container {
@@ -95,8 +96,14 @@
     flex: 0 0 auto;
   }
 
+  .input--dropdown {
+    margin-bottom: 0.5em;
+    width: calc(100% / 3.12);
+  }
+
   .product--container {
     grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
     margin: 1em 0 0 0;
   }
 
