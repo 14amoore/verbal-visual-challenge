@@ -4,22 +4,28 @@ import getAllProducts from "../graphql/collection-starter-code";
 // getAllProducts('test-collection') => returns a Promise, which resolves to an Array of Product Objects
 
 // Your Code Here
-// use below when done
-getAllProducts("test-collection");
 
-// getAllProducts("test-collection").then((arr) =>
-//   arr.forEach((element) => {
-//     console.log(element);
-//   })
-// );
+getAllProducts("test-collection").then((res) => console.log(res));
 
-// getting a NodeList of all the radio buttons
-const input = document.querySelectorAll(".swatch");
+const jeans2 = document.querySelector("#slim-fit-jeans-2");
+jeans2.onclick = changeJeans2;
 
-// for each of the nodes in the NodeList they are to call the function handleInput when they are selected.
-input.forEach((e) => (e.onchange = handleInput));
-
-// right now just logging the target data when a radio is selected.
-function handleInput(e) {
-  console.log(e.target);
+function changeJeans2(e) {
+  const color = e.target.classList[1];
+  const light = document.querySelector(".Light");
+  const dark = document.querySelector(".Dark");
+  let outlined = false;
+  if (color === "Dark") {
+    document.querySelector("#slim-fit-jeans-2").childNodes[1].src =
+      "https://cdn.shopify.com/s/files/1/0570/7726/8642/products/jeans_dark-wash_flat-lay_cc6f505c-ef8c-4029-b788-579cfe75dd33.jpg?v=1622162406";
+    dark.classList.add("outline");
+    e.target.previousSibling.classList.remove("outline");
+    outlined = true;
+  } else {
+    document.querySelector("#slim-fit-jeans-2").childNodes[1].src =
+      "https://cdn.shopify.com/s/files/1/0570/7726/8642/products/jeans_light-wash_flat-lay_6ce5d4c2-77eb-422c-bf45-9c488fad3a4b.jpg?v=1622162406";
+    light.classList.add("outline");
+    e.target.nextSibling.classList.remove("outline");
+    outlined = true;
+  }
 }
